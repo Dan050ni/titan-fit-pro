@@ -1,13 +1,12 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-const AuthContext = createContext();
+const AuthContext = createContext(); // ✅ Aquí se crea el contexto
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // { username, role }
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    // cargar info desde localStorage si existe
     const storedUser = localStorage.getItem('user');
     const storedToken = localStorage.getItem('token');
     if (storedUser && storedToken) {
@@ -37,4 +36,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export default AuthContext;
+export default AuthContext; // ✅ Exporta el contexto para usar en useContext
